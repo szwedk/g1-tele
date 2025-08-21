@@ -1,0 +1,79 @@
+# G1 Teleoperation via MediaPipe Pose
+
+This project enables real-time teleoperation of the Unitree G1 robot's arm using human upper-body movement captured by a webcam and processed with MediaPipe Pose.
+
+---
+
+## 📁 Project Structure
+
+```
+g1_teleop/
+├── main.py                         # Entry point (run MediaPipe + control loop)
+├── config/
+│   └── joint_limits.yaml           # G1 joint range, safety configs
+├── controllers/
+│   ├── sdk_controller.py           # Sends joint angles via Unitree Python SDK
+│   └── ros2_controller.py          # (Optional) ROS 2 control module
+├── tracking/
+│   └── pose_tracker.py             # MediaPipe Pose + joint angle extraction
+├── utils/
+│   ├── joint_mapping.py            # Maps human angles → G1 joint angles
+├── simulation/
+│   └── sim_overlay.py              # Visualizes simulated G1 movements
+├── README.md                       # Project instructions & setup
+└── requirements.txt                # Python dependencies
+```
+
+---
+
+## ✅ Setup
+
+### 1. Clone the repository
+```bash
+git clone <your-repo-url> && cd g1_teleop
+```
+
+### 2. Create a virtual environment (optional)
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🎥 Run the Visual Simulator
+
+```bash
+python -m simulation.sim_overlay
+```
+
+---
+
+## 🤖 Run Full Teleoperation
+
+Make sure your Unitree G1 is:
+- Powered on and in PC control mode
+- Accessible at the IP address defined in `main.py`
+
+Then run:
+```bash
+python main.py
+```
+
+---
+
+## ⚙️ Configuration
+
+- Edit `config/joint_limits.yaml` to adjust allowed motion range per joint.
+- Customize the control logic in `utils/joint_mapping.py` if needed.
+
+---
+
+## 📦 Requirements
+
+See `requirements.txt` for full dependency list.

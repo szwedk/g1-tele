@@ -1,0 +1,25 @@
+
+# Joint angle limits for G1 upper body (in radians)
+shoulder_pitch:
+  min: -1.5
+  max: 1.5
+
+shoulder_roll:
+  min: -1.0
+  max: 1.0
+
+elbow:
+  min: -1.5
+  max: 1.5
+
+wrist_pitch:
+  min: -1.0
+  max: 1.0
+
+wrist_roll:
+  min: -1.5
+  max: 1.5
+
+wrist_yaw:
+  min: -1.5
+  max: 1.5
